@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
-* Студент: [Светлана Овсянникова](https://up.htmlacademy.ru/javascript/25/user/1815521).
-* Наставник: `Неизвестно`.
+* Студент: [Светлана Овсянникова](https://htmlacademy.ru/profile/id1815521).
+* Наставник: [Артём Рудов](https://htmlacademy.ru/profile/artrudov).
 
 ---
 
