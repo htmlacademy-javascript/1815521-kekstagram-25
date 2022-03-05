@@ -74,12 +74,12 @@ const getRandomArrayElement = (elements) => elements[getRandomInt(0, elements.le
 const getRandomCommentText = () => getRandomArrayElement(COMMENT_TEXT);
 
 const createComment = () => {
-  const userId = getRandomInt(1, 6);
+  const USER_ID = getRandomInt(1, 6);
   return {
     id: COMMENT_IDS_POOL.pop(),
-    avatar: `img/avatar-${  userId  }.svg`,
+    avatar: `img/avatar-${  USER_ID  }.svg`,
     message: Array.from({length: getRandomInt(1, 2)},getRandomCommentText,).join(' '),
-    name: USER_NAMES[userId - 1],
+    name: USER_NAMES[USER_ID - 1],
   };
 };
 
@@ -93,4 +93,4 @@ const createPhotoDescription = (id) => ({
 
 const createPhotoArray = () => Array.from({length: PHOTOS_COUNT},(_, k) => createPhotoDescription(k + 1),);
 
-console.log(createPhotoArray());
+window.console.log(createPhotoArray());
