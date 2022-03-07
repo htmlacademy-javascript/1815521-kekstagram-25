@@ -75,9 +75,10 @@ const getRandomCommentText = () => getRandomArrayElement(COMMENT_TEXT);
 
 const createComment = () => {
   const USER_ID = getRandomInt(1, 6);
+
   return {
     id: COMMENT_IDS_POOL.pop(),
-    avatar: `img/avatar-${  USER_ID  }.svg`,
+    avatar: `img/avatar-${USER_ID}.svg`,
     message: Array.from({length: getRandomInt(1, 2)},getRandomCommentText,).join(' '),
     name: USER_NAMES[USER_ID - 1],
   };
@@ -86,11 +87,11 @@ const createComment = () => {
 const createPhotoDescription = (id) => ({
   id: id,
   url: `photos/${  id  }.jpg`,
-  description: `Photo numero ${  id  }`,
+  description: `Photo numero ${id}`,
   likes: getRandomInt(15, 200),
-  comments: Array.from({ length: getRandomInt(MIN_COMMENTS_COUNT, MAX_COMMENTS_COUNT)},createComment,),
+  comments: Array.from({ length: getRandomInt(MIN_COMMENTS_COUNT, MAX_COMMENTS_COUNT)},createComment),
 });
 
-const createPhotoArray = () => Array.from({length: PHOTOS_COUNT},(_, k) => createPhotoDescription(k + 1),);
+const createPhotoArray = () => Array.from({length: PHOTOS_COUNT},(_, k) => createPhotoDescription(k + 1));
 
 window.console.log(createPhotoArray());
