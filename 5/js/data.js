@@ -49,6 +49,6 @@ const createPhotoDescription = (id) => ({
   comments: Array.from({ length: getRandomInt(MIN_COMMENTS_COUNT, MAX_COMMENTS_COUNT)},createComment),
 });
 
-const createPhotoArray = (count) => Array.from({length: count},(_, k) => createPhotoDescription(k + 1));
+const createPhotoArray = () => Array.from({length: PHOTOS_COUNT},(_, k) => createPhotoDescription(k + 1));
 
 export {createPhotoArray};
