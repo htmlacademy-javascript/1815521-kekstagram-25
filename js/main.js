@@ -1,6 +1,3 @@
-import {createPhotoArray} from './data.js';
+import './picture-list.js';
 
-window.console.log(
-  createPhotoArray()
-);
 
