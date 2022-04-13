@@ -3,8 +3,6 @@ import {
 } from './util.js';
 
 const fullscreenUserPhoto = document.querySelector('.big-picture');
-const fullscreenUserPhotoOpen = document.querySelector('.pictures');
-const fullscreenUserPhotoClose = document.querySelector('.big-picture__cancel');
 const body = document.querySelector('body');
 
 //Переменные для скрытия счетчика лайков и загрузки изображения
@@ -19,6 +17,7 @@ const onFullscreenPhotoEscKeydown = (evt) => {
 };
 
 function openFullscreenPhoto() {
+
   fullscreenUserPhoto.classList.remove('hidden');
   body.classList.add('modal-open');
   //Скрытие полей счетчика лайков и загрузки изображения
@@ -35,10 +34,5 @@ function closeFullscreenPhoto() {
   document.removeEventListener('keydown',onFullscreenPhotoEscKeydown);
 }
 
-fullscreenUserPhotoOpen.addEventListener('click', () => {
-  openFullscreenPhoto();
-});
+export {openFullscreenPhoto, closeFullscreenPhoto};
 
-fullscreenUserPhotoClose.addEventListener('click', () => {
-  closeFullscreenPhoto();
-});

@@ -1,3 +1,4 @@
 import './picture-list.js';
-import './fullscreen-modal.js';
+import './upload-form.js';
+import './form-validation.js';
 
