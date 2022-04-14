@@ -1,5 +1,5 @@
 import {
-  openFullscreenPhoto, closeFullscreenPhoto
+  onFullscreenPhotoOpen, onFullscreenPhotoClose
 } from './fullscreen-modal.js';
 
 const picturePhoto = document.querySelector('.big-picture__img img');
@@ -32,7 +32,7 @@ const renderAllComments = (comments) => {
 };
 
 const renderFullPicture = (url, description, likes, comments) => {
-  openFullscreenPhoto();
+  onFullscreenPhotoOpen();
 
   picturePhoto.src = url;
   pictureLikeCounter.textContent = likes;
@@ -41,12 +41,12 @@ const renderFullPicture = (url, description, likes, comments) => {
 
   renderAllComments(comments);
 
-
   fullscreenUserPhotoClose.addEventListener('click', () => {
-    closeFullscreenPhoto();
+    onFullscreenPhotoClose();
   });
 };
 
 export {
   renderFullPicture
 };
+

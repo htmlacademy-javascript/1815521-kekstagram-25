@@ -16,18 +16,18 @@ const onFullscreenPhotoEscKeydown = (evt) => {
 
   if (isEscapeKey(evt)) {
     evt.preventDefault();
-    closeUploadForm();
+    onUploadFormClose();
   }
 };
 
-function openUploadForm() {
+function onUploadFormOpen() {
   pictureUploadOverlay.classList.remove('hidden');
   body.classList.add('modal-open');
 
   document.addEventListener('keydown', onFullscreenPhotoEscKeydown);
 }
 
-function closeUploadForm() {
+function onUploadFormClose() {
   pictureUploadOverlay.classList.add('hidden');
   body.classList.remove('modal-open');
 
@@ -37,22 +37,6 @@ function closeUploadForm() {
   pictureUploadInput.value = '';
 }
 
-pictureUploadInput.addEventListener('click', () => {
-  openUploadForm();
-});
+pictureUploadInput.addEventListener('click', onUploadFormOpen);
 
-pictureUplodeFormClose.addEventListener('click', () => {
-  closeUploadForm();
-});
-
-/*
-function pictureUpload() {
-  const onPictureUpload = (event) => {
-    console.log(event.target.files);
-  };
-
-  uploadInput.addEventListener('change', onPictureUpload);
-}
-
-pictureUpload();
-*/
+pictureUplodeFormClose.addEventListener('click', onUploadFormClose);

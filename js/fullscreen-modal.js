@@ -12,11 +12,11 @@ const commentsLoader = document.querySelector('.social__comments-loader');
 const onFullscreenPhotoEscKeydown = (evt) => {
   if (isEscapeKey(evt)) {
     evt.preventDefault();
-    closeFullscreenPhoto();
+    onFullscreenPhotoClose();
   }
 };
 
-function openFullscreenPhoto() {
+function onFullscreenPhotoOpen() {
 
   fullscreenUserPhoto.classList.remove('hidden');
   body.classList.add('modal-open');
@@ -27,12 +27,12 @@ function openFullscreenPhoto() {
   document.addEventListener('keydown', onFullscreenPhotoEscKeydown);
 }
 
-function closeFullscreenPhoto() {
+function onFullscreenPhotoClose() {
   fullscreenUserPhoto.classList.add('hidden');
   body.classList.remove('modal-open');
 
   document.removeEventListener('keydown',onFullscreenPhotoEscKeydown);
 }
 
-export {openFullscreenPhoto, closeFullscreenPhoto};
+export {onFullscreenPhotoOpen, onFullscreenPhotoClose};
 
