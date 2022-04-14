@@ -7,8 +7,10 @@ const pristine = new Pristine(form, {
 });
 
 //Проверка, что нельзя указать больше пяти хэш-тегов
-function validateHashtagLengts(value) {
-  return value.trim().split(' ').length < 6;
+const MAX_HASHTAG_NUMBERS = 5;
+
+function validateHashtagsLengts(value) {
+  return value.trim().split(' ').length <= MAX_HASHTAG_NUMBERS;
 }
 
 //Проверка уникальности
@@ -20,24 +22,28 @@ function validateHashtagsUniqueness(value) {
 }
 
 //Проверка символов хэш-тега
-const regExp = /^#[A-Za-zА-Яа-яЁё0-9]{1,19}$/;
+const tagRegExp = /^#[A-Za-zА-Яа-яЁё0-9]{1,19}$/;
 
 function validateHashtag(value) {
-  if (value === '') {return true;}
+  if (value === '') {
+    return true;
+  }
   const hashTagArray = value.trim().split(' ');
-  return hashTagArray.every((hashtag) => regExp.test(hashtag));
+  return hashTagArray.every((hashtag) => tagRegExp.test(hashtag));
 }
 
 //Проверка длины комментария
-function validateComments (value) {
-  return value.length <= 140;
+const MAX_COMMENT_LENGTH = 140;
+
+function validateCommentsLengts (value) {
+  return value.length <= MAX_COMMENT_LENGTH;
 }
 
 const hashtagInput = document.querySelector('.text__hashtags');
 
 pristine.addValidator(
   hashtagInput,
-  validateHashtagLengts,
+  validateHashtagsLengts,
   'Ой-ой, слишком много хэш-тегов, их должно быть не больше 5'
 );
 
@@ -57,7 +63,7 @@ const commentInput = document.querySelector('.text__description');
 
 pristine.addValidator(
   commentInput,
-  validateComments,
+  validateCommentsLengts,
   'Ой-ой, комментарий должен содержать не больше 140 символов'
 );
 
