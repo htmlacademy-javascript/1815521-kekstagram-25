@@ -1,4 +1,9 @@
+import {
+  onFullscreenPhotoOpen, onFullscreenPhotoClose
+} from './fullscreen-modal.js';
+
 const picturePhoto = document.querySelector('.big-picture__img img');
+const fullscreenUserPhotoClose = document.querySelector('.big-picture__cancel');
 const pictureLikeCounter = document.querySelector('.likes-count');
 const pictureCommentCounter = document.querySelector('.comments-count');
 const pictureDescription = document.querySelector('.social__caption');
@@ -8,7 +13,11 @@ const commentItem = document.querySelector('.social__comment');
 
 const similarListFragment = document.createDocumentFragment();
 
-const renderComment = ({avatar, name, message}) => {
+const renderComment = ({
+  avatar,
+  name,
+  message
+}) => {
   const comment = commentItem.cloneNode(true);
   comment.querySelector('.social__picture').src = avatar;
   comment.querySelector('.social__picture').alt = name;
@@ -23,13 +32,21 @@ const renderAllComments = (comments) => {
 };
 
 const renderFullPicture = (url, description, likes, comments) => {
+  onFullscreenPhotoOpen();
+
   picturePhoto.src = url;
   pictureLikeCounter.textContent = likes;
   pictureCommentCounter.textContent = comments.length;
   pictureDescription.textContent = description;
+
   renderAllComments(comments);
+
+  fullscreenUserPhotoClose.addEventListener('click', () => {
+    onFullscreenPhotoClose();
+  });
 };
 
 export {
   renderFullPicture
 };
+
