@@ -3,7 +3,7 @@ import {getRandomArrayElement, getRandomInt, shuffleArray} from './util.js';
 
 const PHOTOS_COUNT = 25;
 const MIN_COMMENTS_COUNT = 1;
-const MAX_COMMENTS_COUNT = 3;
+const MAX_COMMENTS_COUNT = 15;
 
 const COMMENT_TEXT = [
   'Всё отлично!',
